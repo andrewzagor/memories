@@ -1,0 +1,88 @@
+import java.math.BigInteger;
+
+
+public class First_class {
+   public static BigInteger calcMethod (String x, String y) {
+	  BigInteger x1 = new BigInteger(x);
+	  BigInteger y1 = new BigInteger(y);
+      BigInteger a = divide_a (x1);
+      BigInteger b = divide_b (x1);
+      BigInteger c = divide_c (y1);
+      BigInteger d = divide_d (y1);
+      String temp = "" + x;
+      int n = temp.length();
+      BigInteger ten = new BigInteger ("10");
+      BigInteger con = ten.pow(n); 
+      BigInteger con1 = ten.pow(n/2);
+      BigInteger sum_a_b = a.add(b);
+      BigInteger sum_c_d = c.add(d);
+      BigInteger mult_a_c= a.multiply(c);
+      BigInteger mult_b_d= b.multiply(d);
+      BigInteger mult_a_b_c_d = sum_a_b.multiply(sum_c_d);
+      BigInteger sum_a_b_c_d = mult_a_c.add(mult_b_d);
+      BigInteger braket = mult_a_b_c_d.subtract(sum_a_b_c_d);
+      BigInteger part1 = a.multiply(c.multiply(con));
+      BigInteger part2 = con1.multiply(braket);
+      BigInteger part3 = b.multiply(d);
+      BigInteger part4 = part1.add(part2);      
+      BigInteger result=part4.add(part3);
+      
+      return result;
+      
+}
+   public static BigInteger divide_a (BigInteger x) {
+	    String str = ""+x;
+	    String str_n = "";
+		char[] dst=new char[str.length()/2];
+		str.getChars(0, str.length()/2, dst, 0);
+		for (int i=0; i<dst.length;i++) {
+			str_n = str_n + String.valueOf(dst[i]);
+		}
+		BigInteger a_b = new BigInteger(str_n);
+	   return a_b;
+   }
+   
+   public static BigInteger divide_b (BigInteger x) {
+	    String str = ""+x;
+	    String str_n = "";
+		char[] dst=new char[str.length()/2];
+		str.getChars(str.length()/2, str.length(), dst, 0);
+		for (int i=0; i<dst.length;i++) {
+			str_n = str_n + String.valueOf(dst[i]);
+		}
+		BigInteger b_b = new BigInteger(str_n);
+	   return b_b;
+  }
+   
+   
+   public static BigInteger divide_c (BigInteger y) {
+	    String str = ""+y;
+	    String str_n = "";
+		char[] dst=new char[str.length()/2];
+		str.getChars(0, str.length()/2, dst, 0);
+		for (int i=0; i<dst.length;i++) {
+			str_n = str_n + String.valueOf(dst[i]);
+		}
+		BigInteger c_b = new BigInteger(str_n);
+	   return c_b;
+ }
+   
+   public static BigInteger divide_d (BigInteger y) {
+	    String str = ""+y;
+	    String str_n = "";
+		char[] dst=new char[str.length()/2];
+		str.getChars(str.length()/2, str.length(), dst, 0);
+		for (int i=0; i<dst.length;i++) {
+			str_n = str_n + String.valueOf(dst[i]);
+		}
+		BigInteger d_b = new BigInteger(str_n);
+	   return d_b;
+ }
+   
+   public static void main(String[] args) {
+	   String x = "1685287499328328297814655639278583667919355849391453456921116729";
+	   String y = "7114192848577754587969744626558571536728983167954552999895348492";
+	 BigInteger result = calcMethod(x,y);
+	 System.out.println(result);
+}  
+}
